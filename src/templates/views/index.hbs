@@ -14,10 +14,10 @@
         {{>header}}
 
         <main class="main-container">
-            <form class="form">
+            <form id="form" class="form">
                 <h3>Enter Your Link Down Bellow</h3>
                 <div class="divider"></div>
-                <textarea class="link-input">Enter the link here...</textarea>
+                <textarea id="url" class="url" required>Enter the link here...</textarea>
 
                 <div class="max-pages-container">
                     <label for="max-pages">Max Pages: </label>
@@ -25,13 +25,36 @@
                 </div>
 
                 <div class="max-depth-container">
-                    <label for="max-depth">Max Pages: </label>
+                    <label for="max-depth">Max Levels: </label>
                     <input id="max-depth" type="number" min="1" required />
+                </div>
+
+                <div class="title-container">
+                    <label for="title">Title: </label>
+                    <input id="title" type="text" required />
                 </div>
 
                 <button class="form-button" type="submit">Submit</button>
             </form>
         </main>
+
+        <div id="tree-container" class="tree-container" style="display: none">
+            <div id="tree-status-bar" class="tree-status-bar" style="">
+                <h4 id="tree-title" class="tree-title"></h4>
+                <div id="pages-status" class="pages-status">
+                    <lablel for="pages-amount">Amount of pages:</lablel>
+                    <span id="pages-amount"></span>
+                </div>
+                <div id="levels-status" class="levels-status">
+                    <lablel for="levels-amount">Amount of levels:</lablel>
+                    <span id="levels-amount"></span>
+                </div>
+            </div>
+
+            <ul id="tree-result" class="tree-result" style="">
+                <li id="0"></li>
+            </ul>
+        </div>
 
         {{>footer}}
     </body>

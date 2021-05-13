@@ -9,6 +9,34 @@ body {
 }
 
 .main-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+
     width: 100vw;
     height: 80vh;
+}
+
+.error-title {
+    font-size: 10rem;
+    margin: 0;
+}
+
+.main-container p {
+    font-size: 1.5rem;
+    margin: 20px;
+}
+
+.error-home-link {
+    width: 250px;
+    height: 50px;
+    text-align: center;
+    padding: 12px;
+
+    text-decoration: none;
+    color: #dcdde1;
+    background-color: #4b4b4b;
+    border: 2px solid black;
+    border-radius: 2px;
 }

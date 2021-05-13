@@ -8,7 +8,106 @@ body {
     background-color: #f5f6fa;
 }
 
-.main-container {
+.main {
     width: 100vw;
     height: 80vh;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.main-container {
+    width: 80%;
+    height: 100%;
+
+    display: grid;
+    grid-template-rows: 9% 1% 90%;
+    grid-template-areas: 'title' 'divider' 'content';
+}
+
+.main-container h1 {
+    grid-area: title;
+    margin: 0%;
+    padding-top: 20px;
+    font-size: 3rem;
+}
+
+.main-container .divider {
+    grid-area: divider;
+    width: 100%;
+    height: 10%;
+    background-color: black;
+}
+
+.main-container-content {
+    grid-area: content;
+    width: 100%;
+    height: 100%;
+
+    display: grid;
+    grid-template-columns: 80% 20%;
+    grid-template-areas: 'article aside';
+}
+
+.article {
+    grid-area: article;
+    width: 100%;
+    height: 100%;
+
+    display: grid;
+    grid-template-rows: repeat(2, 50%);
+    grid-template-areas: 'instructions' 'technologies';
+}
+
+.project-instructions-container,
+.project-technologies-container {
+    width: 100%;
+    height: 100%;
+    font-size: 1.4rem;
+}
+
+.project-instructions-container {
+    grid-area: instructions;
+}
+
+.project-technologies-container {
+    grid-area: technologies;
+}
+
+.aside {
+    grid-area: aside;
+    width: 100%;
+    height: 100%;
+
+    display: grid;
+    grid-template-rows: repeat(2, 50%);
+    grid-template-areas: 'picture' 'links';
+}
+
+.profile-picture {
+    grid-area: picture;
+    width: 100%;
+    height: 70%;
+}
+
+.repository-links {
+    grid-area: links;
+    width: 100%;
+    height: 100%;
+
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+    align-items: center;
+}
+
+.repository-links button {
+    width: 90%;
+    height: 20%;
+    background-color: #4b4b4b;
+    color: #f5f6fa;
+    border: 2px solid black;
+    font-size: 1.5rem;
+    cursor: pointer;
 }
