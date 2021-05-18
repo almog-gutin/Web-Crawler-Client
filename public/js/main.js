@@ -20,7 +20,6 @@ const stream = async (request, queue) => {
 
         if (!response.ok) throw { status: responseObj.status, message: responseObj.message };
 
-        console.log(responseObj);
         const tree = responseObj.data.tree;
         console.log(tree);
 

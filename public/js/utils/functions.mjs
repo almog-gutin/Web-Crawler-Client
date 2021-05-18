@@ -2,13 +2,11 @@ const URL = window.location.href;
 
 const parseNode = (node) => {
     const $nodeEl = document.getElementById(node.id);
-    const aEl = document.createElement('a');
-    const div = document.createElement('div');
 
-    div.innerText = node.title.trim();
-    aEl.appendChild(div);
-    aEl.href = node.url;
-    aEl.target = '__blank';
+    while ($nodeEl.firstElementChild) $nodeEl.removeChild($nodeEl.lastElementChild);
+
+    const div = document.createElement('div');
+    div.innerText = node.title ? node.title.trim() : node.url;
 
     const childrenListEl = document.createElement('ul');
     for (let child of node.children) {
@@ -16,8 +14,16 @@ const parseNode = (node) => {
         childEl.id = child.id;
         childrenListEl.appendChild(childEl);
     }
+    childrenListEl.style.display = 'none';
 
-    $nodeEl.append(aEl, childrenListEl);
+    div.addEventListener('click', (event) => {
+        event.stopPropagation();
+
+        const children = event.target.parentElement.lastElementChild;
+        children.style.display = children.style.display === '' ? 'none' : '';
+    });
+
+    $nodeEl.append(div, childrenListEl);
 };
 
 const getNodeByID = (id, tree) => {
@@ -25,10 +31,11 @@ const getNodeByID = (id, tree) => {
     if (node === null) return;
     if (node.children.length === 0) return node;
 
-    for (let i = 0; i <= id.length - 2; i += 2) {
-        let workerID = parseInt(id[i + 2]);
+    const idArr = id.split('/');
+
+    for (let i = 1; i < idArr.length; i++) {
+        let workerID = parseInt(idArr[i]);
         node = node.children[workerID];
-        console.log(node);
     }
     return node;
 };
@@ -47,17 +54,21 @@ const handleTree = async (tree, queue) => {
     let numNodesParsed = document.getElementsByTagName('ul').length - 3;
     queue.enqueue(tree.root.title, 1, '0');
 
-    while (queue.size > 0 && numNodesParsed < maxPages) {
+    while (queue.size > 0) {
+        //&& numNodesParsed < maxPages
         const node = getNodeByID(queue.dequeue().id, tree);
-        const children = node.children;
-        children.forEach((child) => {
-            if (child.title !== '') queue.enqueue(child.title, child.depthLevel, child.id);
-        });
+        if (node) {
+            const children = node.children;
+            children.forEach((child) => {
+                if (child.title === '') queue.enqueue(child.url, child.depthLevel, child.id);
+                else queue.enqueue(child.title, child.depthLevel, child.id);
+            });
 
-        const nodeEl = document.getElementById(node.id);
-        if (nodeEl && !nodeEl.firstElementChild) {
-            parseNode(node);
-            numNodesParsed++;
+            const nodeEl = document.getElementById(node.id);
+            if (nodeEl) {
+                parseNode(node);
+                numNodesParsed++;
+            }
         }
     }
 };
@@ -68,8 +79,8 @@ const updateStatusBar = (tree) => {
     const $levelsAmountEl = document.getElementById('levels-amount');
 
     $treeContainerEl.style.display = '';
-    $pagesAmountEl.innerText = tree.numOfNodes;
-    $levelsAmountEl.innerText = tree.countLevels;
+    $pagesAmountEl.innerText = tree.numOfNodes >= parseInt(tree.maxPages) ? tree.maxPages : tree.numOfNodes;
+    $levelsAmountEl.innerText = tree.countLevels >= parseInt(tree.maxLevel) ? tree.maxLevel : tree.countLevels;
 };
 
 const checkURL = async (userInput) => {

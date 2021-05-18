@@ -16,10 +16,10 @@
             href="https://fonts.googleapis.com/css2?family=Rubik:ital,wght@0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap"
             rel="stylesheet"
         />
-        <link rel="stylesheet" type="text/css" href="../public/styles/header.css" />
-        <link rel="stylesheet" type="text/css" href="../public/styles/footer.css" />
-        <link rel="stylesheet" type="text/css" href="../public/styles/main.css" />
-        <script type="module" src="../public/js/main.js" defer></script>
+        <link rel="stylesheet" type="text/css" href="./styles/header.css" />
+        <link rel="stylesheet" type="text/css" href="./styles/footer.css" />
+        <link rel="stylesheet" type="text/css" href="./styles/main.css" />
+        <script type="module" src="./js/main.js" defer></script>
         <title>Web Crawler</title>
     </head>
 
@@ -43,7 +43,7 @@
         </header>
 
         <main class="main-container">
-            <form class="form">
+            <form id="form" class="form">
                 <h3>Enter Your Link Down Bellow</h3>
                 <div class="divider"></div>
                 <textarea id="url" class="url" required>Enter the link here...</textarea>
@@ -69,30 +69,752 @@
 
         <div id="tree-container" class="tree-container" style="">
             <div id="tree-status-bar" class="tree-status-bar" style="">
-                <h4 id="tree-title" class="tree-title">Google</h4>
+                <h4 id="tree-title" class="tree-title"></h4>
                 <div id="pages-status" class="pages-status">
                     <lablel for="pages-amount">Amount of pages:</lablel>
-                    <span id="pages-amount">2</span>
+                    <span id="pages-amount"></span>
                 </div>
                 <div id="levels-status" class="levels-status">
                     <lablel for="levels-amount">Amount of levels:</lablel>
-                    <span id="levels-amount">2</span>
+                    <span id="levels-amount"></span>
                 </div>
             </div>
 
             <ul id="tree-result" class="tree-result" style="">
-                <li id="0" class="">
-                    <a href="https://www.google.com/"><div>Google</div></a>
-                    <ul>
-                        <li>
-                            <a href="https://www.google.com/"><div>Google</div></a>
+                <li id="0">
+                    <a href="https://www.google.com" target="__blank"><div>Google</div></a>
+                    <ul style="display: none">
+                        <li id="0/0">
+                            <a href="https://www.google.co.il/imghp?hl=iw&amp;tab=wi" target="__blank"
+                                ><div>Google Photos</div></a
+                            >
+                            <ul>
+                                <li id="0/0/0">
+                                    <a href="https://www.google.co.il/webhp?tab=iw" target="__blank"
+                                        ><div>Google</div></a
+                                    >
+                                    <ul>
+                                        <li id="0/0/0/0"></li>
+                                        <li id="0/0/0/1"></li>
+                                        <li id="0/0/0/2"></li>
+                                        <li id="0/0/0/3"></li>
+                                        <li id="0/0/0/4"></li>
+                                        <li id="0/0/0/5"></li>
+                                        <li id="0/0/0/6"></li>
+                                        <li id="0/0/0/7"></li>
+                                        <li id="0/0/0/8"></li>
+                                        <li id="0/0/0/9"></li>
+                                        <li id="0/0/0/10"></li>
+                                        <li id="0/0/0/11"></li>
+                                        <li id="0/0/0/12"></li>
+                                        <li id="0/0/0/13"></li>
+                                    </ul>
+                                </li>
+                                <li id="0/0/1">
+                                    <a href="https://maps.google.co.il/maps?hl=iw&amp;tab=il" target="__blank"
+                                        ><div>מפות ‪Google‬‏</div></a
+                                    >
+                                    <ul></ul>
+                                </li>
+                                <li id="0/0/2"></li>
+                                <li id="0/0/3"></li>
+                                <li id="0/0/4"></li>
+                                <li id="0/0/5"></li>
+                                <li id="0/0/6"></li>
+                                <li id="0/0/7"></li>
+                                <li id="0/0/8"></li>
+                                <li id="0/0/9"></li>
+                                <li id="0/0/10"></li>
+                            </ul>
                         </li>
-                        <li>
-                            <a href="https://www.google.com/"><div>Google</div></a>
+                        <li id="0/1">
+                            <a href="https://maps.google.co.il/maps?hl=iw&amp;tab=wl" target="__blank"
+                                ><div>מפות ‪Google‬‏</div></a
+                            >
+                            <ul></ul>
                         </li>
-                        <li>
-                            <a href="https://www.google.com/"><div>Google</div></a>
+                        <li id="0/2">
+                            <a href="https://www.youtube.com/?gl=IL&amp;tab=w1" target="__blank"><div>YouTube</div></a>
+                            <ul>
+                                <li id="0/2/0"></li>
+                                <li id="0/2/1"></li>
+                                <li id="0/2/2"></li>
+                                <li id="0/2/3"></li>
+                                <li id="0/2/4"></li>
+                                <li id="0/2/5"></li>
+                                <li id="0/2/6"></li>
+                                <li id="0/2/7"></li>
+                                <li id="0/2/8"></li>
+                            </ul>
                         </li>
+                        <li id="0/3">
+                            <a href="https://news.google.com/?tab=wn" target="__blank"><div>Google News</div></a>
+                            <ul>
+                                <li id="0/3/0">
+                                    <a href="https://www.google.co.il/intl/en-GB/about/products?tab=nh" target="__blank"
+                                        ><div>
+                                            Browse All of Google&amp;#39;s Products &amp;amp; Services - Google UK
+                                        </div></a
+                                    >
+                                    <ul>
+                                        <li id="0/3/0/0"></li>
+                                        <li id="0/3/0/1"></li>
+                                        <li id="0/3/0/2"></li>
+                                        <li id="0/3/0/3"></li>
+                                        <li id="0/3/0/4"></li>
+                                        <li id="0/3/0/5"></li>
+                                        <li id="0/3/0/6"></li>
+                                        <li id="0/3/0/7"></li>
+                                        <li id="0/3/0/8"></li>
+                                        <li id="0/3/0/9"></li>
+                                        <li id="0/3/0/10"></li>
+                                        <li id="0/3/0/11"></li>
+                                        <li id="0/3/0/12"></li>
+                                        <li id="0/3/0/13"></li>
+                                        <li id="0/3/0/14"></li>
+                                        <li id="0/3/0/15"></li>
+                                        <li id="0/3/0/16"></li>
+                                        <li id="0/3/0/17"></li>
+                                        <li id="0/3/0/18"></li>
+                                        <li id="0/3/0/19"></li>
+                                        <li id="0/3/0/20"></li>
+                                        <li id="0/3/0/21"></li>
+                                        <li id="0/3/0/22"></li>
+                                        <li id="0/3/0/23"></li>
+                                        <li id="0/3/0/24"></li>
+                                        <li id="0/3/0/25"></li>
+                                        <li id="0/3/0/26"></li>
+                                        <li id="0/3/0/27"></li>
+                                        <li id="0/3/0/28"></li>
+                                        <li id="0/3/0/29"></li>
+                                        <li id="0/3/0/30"></li>
+                                        <li id="0/3/0/31"></li>
+                                        <li id="0/3/0/32"></li>
+                                        <li id="0/3/0/33"></li>
+                                        <li id="0/3/0/34"></li>
+                                        <li id="0/3/0/35"></li>
+                                        <li id="0/3/0/36"></li>
+                                        <li id="0/3/0/37"></li>
+                                        <li id="0/3/0/38"></li>
+                                        <li id="0/3/0/39"></li>
+                                        <li id="0/3/0/40"></li>
+                                        <li id="0/3/0/41"></li>
+                                        <li id="0/3/0/42"></li>
+                                        <li id="0/3/0/43"></li>
+                                        <li id="0/3/0/44"></li>
+                                        <li id="0/3/0/45"></li>
+                                        <li id="0/3/0/46"></li>
+                                        <li id="0/3/0/47"></li>
+                                        <li id="0/3/0/48"></li>
+                                        <li id="0/3/0/49"></li>
+                                        <li id="0/3/0/50"></li>
+                                        <li id="0/3/0/51"></li>
+                                        <li id="0/3/0/52"></li>
+                                        <li id="0/3/0/53"></li>
+                                        <li id="0/3/0/54"></li>
+                                        <li id="0/3/0/55"></li>
+                                        <li id="0/3/0/56"></li>
+                                        <li id="0/3/0/57"></li>
+                                        <li id="0/3/0/58"></li>
+                                        <li id="0/3/0/59"></li>
+                                        <li id="0/3/0/60"></li>
+                                        <li id="0/3/0/61"></li>
+                                        <li id="0/3/0/62"></li>
+                                        <li id="0/3/0/63"></li>
+                                        <li id="0/3/0/64"></li>
+                                        <li id="0/3/0/65"></li>
+                                        <li id="0/3/0/66"></li>
+                                        <li id="0/3/0/67"></li>
+                                        <li id="0/3/0/68"></li>
+                                        <li id="0/3/0/69"></li>
+                                        <li id="0/3/0/70"></li>
+                                        <li id="0/3/0/71"></li>
+                                        <li id="0/3/0/72"></li>
+                                        <li id="0/3/0/73"></li>
+                                        <li id="0/3/0/74"></li>
+                                        <li id="0/3/0/75"></li>
+                                        <li id="0/3/0/76"></li>
+                                        <li id="0/3/0/77"></li>
+                                        <li id="0/3/0/78"></li>
+                                        <li id="0/3/0/79"></li>
+                                        <li id="0/3/0/80"></li>
+                                        <li id="0/3/0/81"></li>
+                                        <li id="0/3/0/82"></li>
+                                        <li id="0/3/0/83"></li>
+                                        <li id="0/3/0/84"></li>
+                                        <li id="0/3/0/85"></li>
+                                        <li id="0/3/0/86"></li>
+                                        <li id="0/3/0/87"></li>
+                                        <li id="0/3/0/88"></li>
+                                        <li id="0/3/0/89"></li>
+                                        <li id="0/3/0/90"></li>
+                                        <li id="0/3/0/91"></li>
+                                        <li id="0/3/0/92"></li>
+                                        <li id="0/3/0/93"></li>
+                                        <li id="0/3/0/94"></li>
+                                        <li id="0/3/0/95"></li>
+                                        <li id="0/3/0/96"></li>
+                                        <li id="0/3/0/97"></li>
+                                        <li id="0/3/0/98"></li>
+                                        <li id="0/3/0/99"></li>
+                                        <li id="0/3/0/100"></li>
+                                        <li id="0/3/0/101"></li>
+                                        <li id="0/3/0/102"></li>
+                                        <li id="0/3/0/103"></li>
+                                        <li id="0/3/0/104"></li>
+                                        <li id="0/3/0/105"></li>
+                                        <li id="0/3/0/106"></li>
+                                        <li id="0/3/0/107"></li>
+                                        <li id="0/3/0/108"></li>
+                                        <li id="0/3/0/109"></li>
+                                        <li id="0/3/0/110"></li>
+                                        <li id="0/3/0/111"></li>
+                                        <li id="0/3/0/112"></li>
+                                        <li id="0/3/0/113"></li>
+                                        <li id="0/3/0/114"></li>
+                                        <li id="0/3/0/115"></li>
+                                        <li id="0/3/0/116"></li>
+                                        <li id="0/3/0/117"></li>
+                                        <li id="0/3/0/118"></li>
+                                        <li id="0/3/0/119"></li>
+                                        <li id="0/3/0/120"></li>
+                                        <li id="0/3/0/121"></li>
+                                        <li id="0/3/0/122"></li>
+                                        <li id="0/3/0/123"></li>
+                                        <li id="0/3/0/124"></li>
+                                        <li id="0/3/0/125"></li>
+                                        <li id="0/3/0/126"></li>
+                                        <li id="0/3/0/127"></li>
+                                        <li id="0/3/0/128"></li>
+                                        <li id="0/3/0/129"></li>
+                                        <li id="0/3/0/130"></li>
+                                        <li id="0/3/0/131"></li>
+                                        <li id="0/3/0/132"></li>
+                                        <li id="0/3/0/133"></li>
+                                        <li id="0/3/0/134"></li>
+                                        <li id="0/3/0/135"></li>
+                                        <li id="0/3/0/136"></li>
+                                        <li id="0/3/0/137"></li>
+                                        <li id="0/3/0/138"></li>
+                                        <li id="0/3/0/139"></li>
+                                        <li id="0/3/0/140"></li>
+                                        <li id="0/3/0/141"></li>
+                                        <li id="0/3/0/142"></li>
+                                        <li id="0/3/0/143"></li>
+                                        <li id="0/3/0/144"></li>
+                                        <li id="0/3/0/145"></li>
+                                        <li id="0/3/0/146"></li>
+                                        <li id="0/3/0/147"></li>
+                                        <li id="0/3/0/148"></li>
+                                        <li id="0/3/0/149"></li>
+                                        <li id="0/3/0/150"></li>
+                                        <li id="0/3/0/151"></li>
+                                        <li id="0/3/0/152"></li>
+                                        <li id="0/3/0/153"></li>
+                                        <li id="0/3/0/154"></li>
+                                        <li id="0/3/0/155"></li>
+                                        <li id="0/3/0/156"></li>
+                                        <li id="0/3/0/157"></li>
+                                        <li id="0/3/0/158"></li>
+                                        <li id="0/3/0/159"></li>
+                                        <li id="0/3/0/160"></li>
+                                        <li id="0/3/0/161"></li>
+                                        <li id="0/3/0/162"></li>
+                                        <li id="0/3/0/163"></li>
+                                        <li id="0/3/0/164"></li>
+                                        <li id="0/3/0/165"></li>
+                                        <li id="0/3/0/166"></li>
+                                        <li id="0/3/0/167"></li>
+                                        <li id="0/3/0/168"></li>
+                                        <li id="0/3/0/169"></li>
+                                        <li id="0/3/0/170"></li>
+                                        <li id="0/3/0/171"></li>
+                                        <li id="0/3/0/172"></li>
+                                        <li id="0/3/0/173"></li>
+                                        <li id="0/3/0/174"></li>
+                                        <li id="0/3/0/175"></li>
+                                        <li id="0/3/0/176"></li>
+                                        <li id="0/3/0/177"></li>
+                                        <li id="0/3/0/178"></li>
+                                        <li id="0/3/0/179"></li>
+                                        <li id="0/3/0/180"></li>
+                                        <li id="0/3/0/181"></li>
+                                        <li id="0/3/0/182"></li>
+                                        <li id="0/3/0/183"></li>
+                                        <li id="0/3/0/184"></li>
+                                        <li id="0/3/0/185"></li>
+                                        <li id="0/3/0/186"></li>
+                                        <li id="0/3/0/187"></li>
+                                        <li id="0/3/0/188"></li>
+                                        <li id="0/3/0/189"></li>
+                                        <li id="0/3/0/190"></li>
+                                        <li id="0/3/0/191"></li>
+                                        <li id="0/3/0/192"></li>
+                                        <li id="0/3/0/193"></li>
+                                        <li id="0/3/0/194"></li>
+                                        <li id="0/3/0/195"></li>
+                                        <li id="0/3/0/196"></li>
+                                        <li id="0/3/0/197"></li>
+                                        <li id="0/3/0/198"></li>
+                                        <li id="0/3/0/199"></li>
+                                        <li id="0/3/0/200"></li>
+                                        <li id="0/3/0/201"></li>
+                                        <li id="0/3/0/202"></li>
+                                        <li id="0/3/0/203"></li>
+                                        <li id="0/3/0/204"></li>
+                                        <li id="0/3/0/205"></li>
+                                        <li id="0/3/0/206"></li>
+                                        <li id="0/3/0/207"></li>
+                                        <li id="0/3/0/208"></li>
+                                        <li id="0/3/0/209"></li>
+                                        <li id="0/3/0/210"></li>
+                                        <li id="0/3/0/211"></li>
+                                        <li id="0/3/0/212"></li>
+                                        <li id="0/3/0/213"></li>
+                                        <li id="0/3/0/214"></li>
+                                        <li id="0/3/0/215"></li>
+                                        <li id="0/3/0/216"></li>
+                                        <li id="0/3/0/217"></li>
+                                        <li id="0/3/0/218"></li>
+                                        <li id="0/3/0/219"></li>
+                                        <li id="0/3/0/220"></li>
+                                        <li id="0/3/0/221"></li>
+                                        <li id="0/3/0/222"></li>
+                                        <li id="0/3/0/223"></li>
+                                        <li id="0/3/0/224"></li>
+                                        <li id="0/3/0/225"></li>
+                                        <li id="0/3/0/226"></li>
+                                        <li id="0/3/0/227"></li>
+                                        <li id="0/3/0/228"></li>
+                                        <li id="0/3/0/229"></li>
+                                        <li id="0/3/0/230"></li>
+                                        <li id="0/3/0/231"></li>
+                                        <li id="0/3/0/232"></li>
+                                        <li id="0/3/0/233"></li>
+                                        <li id="0/3/0/234"></li>
+                                        <li id="0/3/0/235"></li>
+                                        <li id="0/3/0/236"></li>
+                                        <li id="0/3/0/237"></li>
+                                        <li id="0/3/0/238"></li>
+                                        <li id="0/3/0/239"></li>
+                                        <li id="0/3/0/240"></li>
+                                        <li id="0/3/0/241"></li>
+                                        <li id="0/3/0/242"></li>
+                                        <li id="0/3/0/243"></li>
+                                        <li id="0/3/0/244"></li>
+                                        <li id="0/3/0/245"></li>
+                                        <li id="0/3/0/246"></li>
+                                        <li id="0/3/0/247"></li>
+                                        <li id="0/3/0/248"></li>
+                                        <li id="0/3/0/249"></li>
+                                        <li id="0/3/0/250"></li>
+                                        <li id="0/3/0/251"></li>
+                                        <li id="0/3/0/252"></li>
+                                        <li id="0/3/0/253"></li>
+                                        <li id="0/3/0/254"></li>
+                                        <li id="0/3/0/255"></li>
+                                        <li id="0/3/0/256"></li>
+                                        <li id="0/3/0/257"></li>
+                                    </ul>
+                                </li>
+                                <li id="0/3/1"></li>
+                                <li id="0/3/2"></li>
+                                <li id="0/3/3"></li>
+                                <li id="0/3/4"></li>
+                                <li id="0/3/5"></li>
+                                <li id="0/3/6"></li>
+                                <li id="0/3/7"></li>
+                                <li id="0/3/8"></li>
+                                <li id="0/3/9"></li>
+                                <li id="0/3/10"></li>
+                                <li id="0/3/11"></li>
+                                <li id="0/3/12"></li>
+                                <li id="0/3/13"></li>
+                                <li id="0/3/14"></li>
+                                <li id="0/3/15"></li>
+                                <li id="0/3/16"></li>
+                                <li id="0/3/17"></li>
+                                <li id="0/3/18"></li>
+                                <li id="0/3/19"></li>
+                                <li id="0/3/20"></li>
+                                <li id="0/3/21"></li>
+                                <li id="0/3/22"></li>
+                                <li id="0/3/23"></li>
+                                <li id="0/3/24"></li>
+                                <li id="0/3/25"></li>
+                                <li id="0/3/26"></li>
+                                <li id="0/3/27"></li>
+                                <li id="0/3/28"></li>
+                                <li id="0/3/29"></li>
+                                <li id="0/3/30"></li>
+                                <li id="0/3/31"></li>
+                                <li id="0/3/32"></li>
+                                <li id="0/3/33"></li>
+                                <li id="0/3/34"></li>
+                                <li id="0/3/35"></li>
+                                <li id="0/3/36"></li>
+                                <li id="0/3/37"></li>
+                                <li id="0/3/38"></li>
+                                <li id="0/3/39"></li>
+                            </ul>
+                        </li>
+                        <li id="0/4">
+                            <a href="https://mail.google.com/mail/?tab=wm" target="__blank"><div>Gmail</div></a>
+                            <ul>
+                                <li id="0/4/0">
+                                    <a
+                                        href="https://accounts.google.com/signin/usernamerecovery?continue=https%3A%2F%2Fmail.google.com%2Fmail%2F%3Ftab%3Dwm&amp;service=mail&amp;scc=1&amp;rm=false&amp;osid=1&amp;ltmpl=default&amp;hl=iw"
+                                        target="__blank"
+                                        ><div>חשבונות Google</div></a
+                                    >
+                                    <ul>
+                                        <li id="0/4/0/0"></li>
+                                        <li id="0/4/0/1"></li>
+                                        <li id="0/4/0/2"></li>
+                                        <li id="0/4/0/3"></li>
+                                    </ul>
+                                </li>
+                                <li id="0/4/1"></li>
+                                <li id="0/4/2"></li>
+                                <li id="0/4/3"></li>
+                                <li id="0/4/4"></li>
+                                <li id="0/4/5"></li>
+                                <li id="0/4/6"></li>
+                            </ul>
+                        </li>
+                        <li id="0/5">
+                            <a href="https://drive.google.com/?tab=wo" target="__blank"
+                                ><div>Google Drive - מקום אחד לכל הקבצים שלך</div></a
+                            >
+                            <ul>
+                                <li id="0/5/0">
+                                    <a
+                                        href="https://accounts.google.com/signin/usernamerecovery?continue=https%3A%2F%2Fdrive.google.com%2F%3Ftab%3Dwo&amp;service=wise&amp;hl=iw"
+                                        target="__blank"
+                                        ><div>חשבונות Google</div></a
+                                    >
+                                    <ul>
+                                        <li id="0/5/0/0"></li>
+                                        <li id="0/5/0/1"></li>
+                                        <li id="0/5/0/2"></li>
+                                        <li id="0/5/0/3"></li>
+                                    </ul>
+                                </li>
+                                <li id="0/5/1"></li>
+                                <li id="0/5/2"></li>
+                                <li id="0/5/3"></li>
+                                <li id="0/5/4"></li>
+                                <li id="0/5/5"></li>
+                                <li id="0/5/6"></li>
+                            </ul>
+                        </li>
+                        <li id="0/6">
+                            <a href="https://calendar.google.com/calendar?tab=wc" target="__blank"
+                                ><div>לוח השנה של Google</div></a
+                            >
+                            <ul>
+                                <li id="0/6/0">
+                                    <a
+                                        href="https://accounts.google.com/signin/usernamerecovery?continue=https%3A%2F%2Fcalendar.google.com%2Fcalendar%2Frender%3Ftab%3Dwc&amp;service=cl&amp;scc=1&amp;osid=1&amp;hl=iw"
+                                        target="__blank"
+                                        ><div>חשבונות Google</div></a
+                                    >
+                                    <ul>
+                                        <li id="0/6/0/0"></li>
+                                        <li id="0/6/0/1"></li>
+                                        <li id="0/6/0/2"></li>
+                                        <li id="0/6/0/3"></li>
+                                    </ul>
+                                </li>
+                                <li id="0/6/1"></li>
+                                <li id="0/6/2"></li>
+                                <li id="0/6/3"></li>
+                                <li id="0/6/4"></li>
+                                <li id="0/6/5"></li>
+                                <li id="0/6/6"></li>
+                            </ul>
+                        </li>
+                        <li id="0/7">
+                            <a href="https://www.google.co.il/intl/iw/about/products?tab=wh" target="__blank"
+                                ><div>Browse All of Google&amp;#39;s Products &amp;amp; Services - Google</div></a
+                            >
+                            <ul>
+                                <li id="0/7/0"></li>
+                                <li id="0/7/1"></li>
+                                <li id="0/7/2"></li>
+                                <li id="0/7/3"></li>
+                                <li id="0/7/4"></li>
+                                <li id="0/7/5"></li>
+                                <li id="0/7/6"></li>
+                                <li id="0/7/7"></li>
+                                <li id="0/7/8"></li>
+                                <li id="0/7/9"></li>
+                                <li id="0/7/10"></li>
+                                <li id="0/7/11"></li>
+                                <li id="0/7/12"></li>
+                                <li id="0/7/13"></li>
+                                <li id="0/7/14"></li>
+                                <li id="0/7/15"></li>
+                                <li id="0/7/16"></li>
+                                <li id="0/7/17"></li>
+                                <li id="0/7/18"></li>
+                                <li id="0/7/19"></li>
+                                <li id="0/7/20"></li>
+                                <li id="0/7/21"></li>
+                                <li id="0/7/22"></li>
+                                <li id="0/7/23"></li>
+                                <li id="0/7/24"></li>
+                                <li id="0/7/25"></li>
+                                <li id="0/7/26"></li>
+                                <li id="0/7/27"></li>
+                                <li id="0/7/28"></li>
+                                <li id="0/7/29"></li>
+                                <li id="0/7/30"></li>
+                                <li id="0/7/31"></li>
+                                <li id="0/7/32"></li>
+                                <li id="0/7/33"></li>
+                                <li id="0/7/34"></li>
+                                <li id="0/7/35"></li>
+                                <li id="0/7/36"></li>
+                                <li id="0/7/37"></li>
+                                <li id="0/7/38"></li>
+                                <li id="0/7/39"></li>
+                                <li id="0/7/40"></li>
+                                <li id="0/7/41"></li>
+                                <li id="0/7/42"></li>
+                                <li id="0/7/43"></li>
+                                <li id="0/7/44"></li>
+                                <li id="0/7/45"></li>
+                                <li id="0/7/46"></li>
+                                <li id="0/7/47"></li>
+                                <li id="0/7/48"></li>
+                                <li id="0/7/49"></li>
+                                <li id="0/7/50"></li>
+                                <li id="0/7/51"></li>
+                                <li id="0/7/52"></li>
+                                <li id="0/7/53"></li>
+                                <li id="0/7/54"></li>
+                                <li id="0/7/55"></li>
+                                <li id="0/7/56"></li>
+                                <li id="0/7/57"></li>
+                                <li id="0/7/58"></li>
+                                <li id="0/7/59"></li>
+                                <li id="0/7/60"></li>
+                                <li id="0/7/61"></li>
+                                <li id="0/7/62"></li>
+                                <li id="0/7/63"></li>
+                                <li id="0/7/64"></li>
+                                <li id="0/7/65"></li>
+                                <li id="0/7/66"></li>
+                                <li id="0/7/67"></li>
+                                <li id="0/7/68"></li>
+                                <li id="0/7/69"></li>
+                                <li id="0/7/70"></li>
+                                <li id="0/7/71"></li>
+                                <li id="0/7/72"></li>
+                                <li id="0/7/73"></li>
+                                <li id="0/7/74"></li>
+                                <li id="0/7/75"></li>
+                                <li id="0/7/76"></li>
+                                <li id="0/7/77"></li>
+                                <li id="0/7/78"></li>
+                                <li id="0/7/79"></li>
+                                <li id="0/7/80"></li>
+                                <li id="0/7/81"></li>
+                                <li id="0/7/82"></li>
+                                <li id="0/7/83"></li>
+                                <li id="0/7/84"></li>
+                                <li id="0/7/85"></li>
+                                <li id="0/7/86"></li>
+                                <li id="0/7/87"></li>
+                                <li id="0/7/88"></li>
+                                <li id="0/7/89"></li>
+                                <li id="0/7/90"></li>
+                                <li id="0/7/91"></li>
+                                <li id="0/7/92"></li>
+                                <li id="0/7/93"></li>
+                                <li id="0/7/94"></li>
+                                <li id="0/7/95"></li>
+                                <li id="0/7/96"></li>
+                                <li id="0/7/97"></li>
+                                <li id="0/7/98"></li>
+                                <li id="0/7/99"></li>
+                                <li id="0/7/100"></li>
+                                <li id="0/7/101"></li>
+                                <li id="0/7/102"></li>
+                                <li id="0/7/103"></li>
+                                <li id="0/7/104"></li>
+                                <li id="0/7/105"></li>
+                                <li id="0/7/106"></li>
+                                <li id="0/7/107"></li>
+                                <li id="0/7/108"></li>
+                                <li id="0/7/109"></li>
+                                <li id="0/7/110"></li>
+                                <li id="0/7/111"></li>
+                                <li id="0/7/112"></li>
+                                <li id="0/7/113"></li>
+                                <li id="0/7/114"></li>
+                                <li id="0/7/115"></li>
+                                <li id="0/7/116"></li>
+                                <li id="0/7/117"></li>
+                                <li id="0/7/118"></li>
+                                <li id="0/7/119"></li>
+                                <li id="0/7/120"></li>
+                                <li id="0/7/121"></li>
+                                <li id="0/7/122"></li>
+                                <li id="0/7/123"></li>
+                                <li id="0/7/124"></li>
+                                <li id="0/7/125"></li>
+                                <li id="0/7/126"></li>
+                                <li id="0/7/127"></li>
+                                <li id="0/7/128"></li>
+                                <li id="0/7/129"></li>
+                                <li id="0/7/130"></li>
+                                <li id="0/7/131"></li>
+                                <li id="0/7/132"></li>
+                                <li id="0/7/133"></li>
+                                <li id="0/7/134"></li>
+                                <li id="0/7/135"></li>
+                                <li id="0/7/136"></li>
+                                <li id="0/7/137"></li>
+                                <li id="0/7/138"></li>
+                                <li id="0/7/139"></li>
+                                <li id="0/7/140"></li>
+                                <li id="0/7/141"></li>
+                                <li id="0/7/142"></li>
+                                <li id="0/7/143"></li>
+                                <li id="0/7/144"></li>
+                                <li id="0/7/145"></li>
+                                <li id="0/7/146"></li>
+                                <li id="0/7/147"></li>
+                                <li id="0/7/148"></li>
+                                <li id="0/7/149"></li>
+                                <li id="0/7/150"></li>
+                                <li id="0/7/151"></li>
+                                <li id="0/7/152"></li>
+                                <li id="0/7/153"></li>
+                                <li id="0/7/154"></li>
+                                <li id="0/7/155"></li>
+                                <li id="0/7/156"></li>
+                                <li id="0/7/157"></li>
+                                <li id="0/7/158"></li>
+                                <li id="0/7/159"></li>
+                                <li id="0/7/160"></li>
+                                <li id="0/7/161"></li>
+                                <li id="0/7/162"></li>
+                                <li id="0/7/163"></li>
+                                <li id="0/7/164"></li>
+                                <li id="0/7/165"></li>
+                                <li id="0/7/166"></li>
+                                <li id="0/7/167"></li>
+                                <li id="0/7/168"></li>
+                                <li id="0/7/169"></li>
+                                <li id="0/7/170"></li>
+                                <li id="0/7/171"></li>
+                                <li id="0/7/172"></li>
+                                <li id="0/7/173"></li>
+                                <li id="0/7/174"></li>
+                                <li id="0/7/175"></li>
+                                <li id="0/7/176"></li>
+                                <li id="0/7/177"></li>
+                                <li id="0/7/178"></li>
+                                <li id="0/7/179"></li>
+                                <li id="0/7/180"></li>
+                                <li id="0/7/181"></li>
+                                <li id="0/7/182"></li>
+                                <li id="0/7/183"></li>
+                                <li id="0/7/184"></li>
+                                <li id="0/7/185"></li>
+                                <li id="0/7/186"></li>
+                                <li id="0/7/187"></li>
+                                <li id="0/7/188"></li>
+                                <li id="0/7/189"></li>
+                                <li id="0/7/190"></li>
+                                <li id="0/7/191"></li>
+                                <li id="0/7/192"></li>
+                                <li id="0/7/193"></li>
+                                <li id="0/7/194"></li>
+                                <li id="0/7/195"></li>
+                                <li id="0/7/196"></li>
+                                <li id="0/7/197"></li>
+                                <li id="0/7/198"></li>
+                                <li id="0/7/199"></li>
+                            </ul>
+                        </li>
+                        <li id="0/8">
+                            <a href="http://www.google.co.il/history/optout?hl=iw" target="__blank"
+                                ><div>Google – התאמה אישית של החיפוש</div></a
+                            >
+                            <ul>
+                                <li id="0/8/0"></li>
+                                <li id="0/8/1"></li>
+                                <li id="0/8/2"></li>
+                                <li id="0/8/3"></li>
+                                <li id="0/8/4"></li>
+                                <li id="0/8/5"></li>
+                                <li id="0/8/6"></li>
+                                <li id="0/8/7"></li>
+                                <li id="0/8/8"></li>
+                                <li id="0/8/9"></li>
+                                <li id="0/8/10"></li>
+                                <li id="0/8/11"></li>
+                                <li id="0/8/12"></li>
+                                <li id="0/8/13"></li>
+                                <li id="0/8/14"></li>
+                                <li id="0/8/15"></li>
+                                <li id="0/8/16"></li>
+                                <li id="0/8/17"></li>
+                                <li id="0/8/18"></li>
+                                <li id="0/8/19"></li>
+                                <li id="0/8/20"></li>
+                                <li id="0/8/21"></li>
+                                <li id="0/8/22"></li>
+                                <li id="0/8/23"></li>
+                                <li id="0/8/24"></li>
+                                <li id="0/8/25"></li>
+                                <li id="0/8/26"></li>
+                                <li id="0/8/27"></li>
+                                <li id="0/8/28"></li>
+                                <li id="0/8/29"></li>
+                                <li id="0/8/30"></li>
+                                <li id="0/8/31"></li>
+                                <li id="0/8/32"></li>
+                                <li id="0/8/33"></li>
+                                <li id="0/8/34"></li>
+                            </ul>
+                        </li>
+                        <li id="0/9">
+                            <a
+                                href="https://accounts.google.com/ServiceLogin?hl=iw&amp;passive=true&amp;continue=https://www.google.com/&amp;ec=GAZAAQ"
+                                target="__blank"
+                                ><div>כניסה - חשבונות Google</div></a
+                            >
+                            <ul>
+                                <li id="0/9/0">
+                                    <a
+                                        href="https://accounts.google.com/signin/usernamerecovery?continue=https%3A%2F%2Fwww.google.com%2F&amp;hl=iw"
+                                        target="__blank"
+                                        ><div>חשבונות Google</div></a
+                                    >
+                                    <ul>
+                                        <li id="0/9/0/0"></li>
+                                        <li id="0/9/0/1"></li>
+                                        <li id="0/9/0/2"></li>
+                                        <li id="0/9/0/3"></li>
+                                    </ul>
+                                </li>
+                                <li id="0/9/1"></li>
+                                <li id="0/9/2"></li>
+                                <li id="0/9/3"></li>
+                                <li id="0/9/4"></li>
+                                <li id="0/9/5"></li>
+                                <li id="0/9/6"></li>
+                            </ul>
+                        </li>
+                        <li id="0/10"></li>
+                        <li id="0/11"></li>
+                        <li id="0/12"></li>
+                        <li id="0/13"></li>
                     </ul>
                 </li>
             </ul>

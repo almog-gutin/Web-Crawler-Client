@@ -23,28 +23,14 @@
     width: 200px;
 }
 
-.header-container-title {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-
+.header h1 {
     height: 100%;
     width: 80%;
-}
-
-.header-container-title h1,
-.header-container-title h2 {
+    margin: 0%;
+    text-align: center;
+    padding-top: 60px;
     color: #dcdde1;
-}
-
-.header-container-title h1 {
     font-size: 4rem;
-    margin-bottom: 0%;
-}
-
-.header-container-title h2 {
-    font-size: 2rem;
 }
 
 .header-nav {
